@@ -22,7 +22,8 @@ void loop() {
   magm(x, y, z);
   Serial.print("  X: "); Serial.print(x);
   Serial.print("  Y: "); Serial.print(y);
-  Serial.print("  Z: "); Serial.println(z);}
+  Serial.print("  Z: "); Serial.println(z);
+}
 
 void magm(int16_t &x, int16_t &y, int16_t &z) {
   Wire.beginTransmission(HMC5883L_ADDRESS);
@@ -32,5 +33,6 @@ void magm(int16_t &x, int16_t &y, int16_t &z) {
   if (Wire.available() == 6) {
     x = Wire.read() << 8 | Wire.read();
     z = Wire.read() << 8 | Wire.read();
-    y = Wire.read() << 8 | Wire.read();}
+    y = Wire.read() << 8 | Wire.read();
+  }
 }
